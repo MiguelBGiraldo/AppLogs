@@ -1,14 +1,22 @@
+const envs = require('../../config/envs');
 
+const start = new Date();
+
+const getUptime = () => {
+    const now = new Date();
+    const uptimeInMillis = now - start;
+    return uptimeInMillis / 1000;  // Convertir a segundos
+};
 
 exports.checkHealth = (req, res) => {
     res.json({
         status: "UP",
-        version: 'version',
-        uptime: '',
+        version: envs.VERSION,
+        uptime: getUptime(),
         checks: [
             {
                 data: {
-                    from: 'REEMPLAZAR',
+                    from: start.toISOString(),
                     status: "READY"
                 },
                 name: "Readiness check",
@@ -16,7 +24,7 @@ exports.checkHealth = (req, res) => {
             },
             {
                 data: {
-                    from: 'REEMPLAZAR',
+                    from: start.toISOString(),
                     status: "ALIVE"
                 },
                 name: "Liveness check",
@@ -33,7 +41,7 @@ exports.checkReady = (req, res) => {
         uptime: getUptime(),
         check: {
             data: {
-                from: startTime.toISOString(),
+                from: start.toISOString(),
                 status: "READY"
             },
             name: "Readiness check",
@@ -49,7 +57,7 @@ exports.checkLive = (req, res) => {
         uptime: getUptime(),
         check: {
             data: {
-                from: startTime.toISOString(),
+                from: start.toISOString(),
                 status: "ALIVE"
             },
             name: "Liveness check",
