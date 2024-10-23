@@ -10,11 +10,12 @@ const  Server   = require('./presentation/server');
 
 
 async function main() {
-
+  /*
   await MongoDataBase.connect({
     dbName: envs.MONGO_DB_NAME,
     mongoUrl: envs.MONGO_URL,
   });
+  */
 
   const server = new Server({
     port: envs.PORT,
