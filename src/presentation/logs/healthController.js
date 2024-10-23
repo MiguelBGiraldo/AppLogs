@@ -37,7 +37,7 @@ exports.checkHealth = (req, res) => {
 exports.checkReady = (req, res) => {
     res.json({
         status: "UP",
-        version: version,
+        version: envs.VERSION,
         uptime: getUptime(),
         check: {
             data: {
@@ -53,7 +53,7 @@ exports.checkReady = (req, res) => {
 exports.checkLive = (req, res) => {
     res.json({
         status: "UP",
-        version: version,
+        version: envs.VERSION,
         uptime: getUptime(),
         check: {
             data: {
