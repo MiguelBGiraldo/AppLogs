@@ -39,7 +39,7 @@ exports.checkReady = (req, res) => {
         status: "UP",
         version: envs.VERSION,
         uptime: getUptime(),
-        check: {
+        checks: {
             data: {
                 from: start.toISOString(),
                 status: "READY"
@@ -55,7 +55,7 @@ exports.checkLive = (req, res) => {
         status: "UP",
         version: envs.VERSION,
         uptime: getUptime(),
-        check: {
+        checks: {
             data: {
                 from: start.toISOString(),
                 status: "ALIVE"
